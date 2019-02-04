@@ -1,3 +1,4 @@
-import WonderPush from './WonderPush.js'
+// import WonderPush from './WonderPush.js'
+import WonderPushComponent from './WonderPushComponent'
 
-export default WonderPush;
+export {WonderPushComponent};
