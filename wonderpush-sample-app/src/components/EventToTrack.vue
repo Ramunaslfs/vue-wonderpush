@@ -15,7 +15,9 @@ export default {
     "wonderPush"
   ],
   methods: {
-    fireEvent: () => this.$props.wonderPush.trackEvent(this.$props.event)
+    fireEvent: function(){
+      this.$props.wonderPush.trackEvent(this.$props.event)
+    }
   }
 }
 </script>
