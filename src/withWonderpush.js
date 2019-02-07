@@ -1,21 +1,33 @@
 import Vue from 'vue';
 import WonderPush from './WonderPush';
 
-const withWonderPush = (component, options = {}) => {
-  return Vue.component('withWonderPush', {
-    render(createElement) {
-      return createElement(component, {
-        props: {
-          wp : WonderPush
-        }
-      })
-    },
-    // data(){
-    //   return {
-    //     wp : WonderPush
-    //   }
-    // },
-  })
-}
+const withWonderPush = (WrappedComponent, options = {}) => ({
+  data(){
+    return {
+      ready: false
+    }
+  },
+  mounted(){
+    WonderPush.ready( wp => {
+      this.$props.wonderPush = wp;
+      this.$data.ready = true;
+    })
+  },
+  props: {
+    dictionnary: WrappedComponent.props.dictionnary,
+    event: WrappedComponent.props.event,
+    wonderpush: WonderPush
+  },
+  render (h) {
+    const waitWonderPushReady = options && options.waitWonderPushReady
+    return waitWonderPushReady && !this.$data.ready ?
+      null :
+      h(WrappedComponent, { props: this.$props });
+  }
+});
+
+
+
+
 
 export default withWonderPush

@@ -1,18 +1,11 @@
 <template>
-  <div>
-<div id="wonderpush-subscription-switch" data-sentence="Recevoir nos dernières nouveautés par push notification web : " data-on="OUI" data-off="NON"></div>
-  <wonder-push-component a="test" moi="bouba"/>
+  <div className="switch-container">
+    <div id="wonderpush-subscription-switch" data-on="YES" data-off="NO"></div>
   </div>
 </template>
 
 <script>
-// import WonderPush from 'vue-wonderpush';
-import WonderPushComponent from '../../../src/WonderPushComponent.vue';
-
-export default {
-  name: 'SwitchButton',
-  components:{
-    WonderPushComponent
+  export default {
+    name: 'SwitchButton',
   }
-}
 </script>

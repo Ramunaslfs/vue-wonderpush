@@ -1,21 +1,21 @@
 <template>
   <div id="eventlist">
-    <div class="first-visit">{{lookUpEvent.firstVisit}}</div>
-    <div class="news-read">{{lookUpEvent.newsRead}}</div>
-    <div class="game-over">{{lookUpEvent.gameOver}}</div>
-    <div class="like">{{lookUpEvent.like}}</div>
-    <div class="add-to-cart">{{lookUpEvent.addToCart}}</div>
-    <div class="purchase">{{lookUpEvent.purchase}}</div>
-    <div class="near-eiffel-tower">{{lookUpEvent.nearEiffelTower}}</div>
-    <div class="near-louvre">{{lookUpEvent.nearLouvre}}</div>
-    <div class="inactive-user">{{lookUpEvent.inactiveUser}}</div>
+    <div v-for="k in Object.keys(lookUpEvent)" :key=k>
+      <EventToTrack
+        :dictionnary="lookUpEvent"
+        :event="k"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+import EventToTrack from './EventToTrack'
+import {withWonderPush} from 'vue-wonderpush'
+
 export default {
   name : 'EventList',
-    data () {
+  data () {
     return {
       lookUpEvent: {
         firstVisit: 'First Visit',
@@ -30,6 +30,7 @@ export default {
       }
     }
   },
+  components: { EventToTrack: withWonderPush(EventToTrack, {waitWonderPushReady: true}) }
 }
 </script>
 
