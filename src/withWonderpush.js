@@ -1,4 +1,4 @@
-import Vue from 'vue';
+//import Vue from 'vue';
 import WonderPush from './WonderPush';
 
 const withWonderPush = (WrappedComponent, options = {}) => ({
@@ -25,9 +25,5 @@ const withWonderPush = (WrappedComponent, options = {}) => ({
       createElement(WrappedComponent, { props: this.$props });
   }
 });
-
-
-
-
 
 export default withWonderPush

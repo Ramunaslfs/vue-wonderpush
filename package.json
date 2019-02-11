@@ -6,6 +6,9 @@
   "author": "",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "build": "npx gulp"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
