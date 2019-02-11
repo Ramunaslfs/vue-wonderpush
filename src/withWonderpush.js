@@ -18,11 +18,11 @@ const withWonderPush = (WrappedComponent, options = {}) => ({
     event: WrappedComponent.props.event,
     wonderpush: WonderPush
   },
-  render (h) {
+  render (createElement) {
     const waitWonderPushReady = options && options.waitWonderPushReady
     return waitWonderPushReady && !this.$data.ready ?
       null :
-      h(WrappedComponent, { props: this.$props });
+      createElement(WrappedComponent, { props: this.$props });
   }
 });
 
