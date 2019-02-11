@@ -1,30 +1,112 @@
 # vue-wonderpush
 
-> A Vue.js project
+This service lets you integrate Wonderpush in your Vue applications easily.
+- [Official website](https://wonderpush.com)
 
-## Build Setup
+## Features
 
-``` bash
-# install dependencies
-npm install
+## Installation and Quick Start
 
-# serve with hot reload at localhost:8080
-npm run dev
+### 1- Installation:
+You can install the module from a package manager of your choice directly from the command line
 
-# build for production with minification
-npm run build
+```sh
+# Yarn
+yarn add vue-wonderpush
 
-# build for production and view the bundle analyzer report
-npm run build --report
+# NPM
+npm i vue-wonderpush
 
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+### 2- In your application
+
+```javascript
+import WonderPush from 'vue-wonderpush';
+WonderPush.init({
+  webKey: 'YOUR-WEBKEY-HERE',
+});
+```
+Options available for wonderpush.init:
+https://wonderpush.github.io/wonderpush-javascript-sdk/latest/WonderPush.html#.InitOptions
+
+
+### 3- In your components
+
+Create a component who need wonderpush:
+
+```javascript
+import Wonderpush from 'vue-wonderpush';
+<template>
+  <div 
+      v-bind:class= "['event', 'myEvent']"
+      v-on:click="fireEvent()"
+    > 
+    Click this div to track "myEvent"
+  </div>
+</template>
+
+<script>
+  export default {
+    props: [
+      "wonderPush"
+    ],
+    methods: {
+      fireEvent: function(){
+        this.$props.wonderPush.trackEvent(this.$props.event)
+      }
+    }
+  }
+</script>
+```
+
+Give the wonderpush object on the import:
+
+```javascript
+<template>
+  <EventToTrack/>
+</template>
+
+<script>
+  import EventToTrack from './EventToTrack'
+  import {withWonderPush} from 'vue-wonderpush'
+
+  export default {
+    name : 'ParentOfEventToTrack',
+    components: { EventToTrack: withWonderPush(EventToTrack, {waitWonderPushReady: true}) }
+  }
+</script>
+```
+
+WithWonderPush take two arguments:
+  - Component
+  - options
+
+Options available: 
+  - waitWonderPushReady: boolean (default : false)
+
+## Sample app
+To help you with your implementaiton we provided a sample application. to run it
+```bash
+cd wonderpush-sample-app
+yarn start
+```
+then go to [http://localhost:8080](http://localhost:8080)
+
+
+## License
+
+This module is released under the permissive [MIT License](http://revolunet.mit-license.org). Your contributions are always welcome.
+
+## Development
+
+Start the wonderpush-sample-app with npm start or yarn start will install and build library and install sample-app node_modules.
+
+After forking you will need to run the following from a command line to get your environment setup:
+
+1. ```yarn install```
+
+After install you have the following commands available to you from a command line:
+
+1. ```gulp```
