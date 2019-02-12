@@ -2,10 +2,23 @@
   "name": "vue-wonderpush",
   "version": "1.0.0",
   "main": "./src/index.js",
-  "repository": "https://github.com/wonderpush/vue-wonderpush.git",
-  "author": "",
+  "author": "Julien Grach, Boubacar Drame, Miguel Mendoza",
   "license": "MIT",
-  "private": true,
+  "private": false,
+  "keywords": [
+    "wonderpush",
+    "vue",
+    "wrapper",
+    "notifications"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wonderpush/vue-wonderpush.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wonderpush/vue-wonderpush/issues"
+  },
+  "homepage": "https://github.com/wonderpush/vue-wonderpush#readme",
   "scripts": {
     "build": "npx gulp"
   },
