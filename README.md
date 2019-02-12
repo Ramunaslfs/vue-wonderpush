@@ -34,6 +34,22 @@ https://wonderpush.github.io/wonderpush-javascript-sdk/latest/WonderPush.html#.I
 
 ### 3- In your components
 
+Integrate a wonderpush subscription:
+
+```javascript
+<template>
+  <div className="switch-container">
+    <div id="wonderpush-subscription-switch" data-on="YES" data-off="NO"></div>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'SwitchButton',
+  }
+</script>
+```
+
 Create a component who need wonderpush:
 
 ```javascript
@@ -101,7 +117,7 @@ This module is released under the permissive [MIT License](http://revolunet.mit-
 
 ## Development
 
-Start the wonderpush-sample-app with npm start or yarn start will install and build library and install sample-app node_modules.
+Start the wonderpush-sample-app with npm start or yarn start will install and build library and install sample-app node_modules if they not exists.
 
 After forking you will need to run the following from a command line to get your environment setup:
 
