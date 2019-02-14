@@ -27,30 +27,22 @@ npm i vue-wonderpush
   <div id="app">
     <h1>Connecting to wonderpush</h1>
     <WonderPush v-bind="options">
-      <SwitchButton/>
-      <EventList/>
+      <!-- YOUR APP HERE -->
     </WonderPush>
   </div>
 </template>
 
 <script>
 import {WonderPush} from 'vue-wonderpush'
-import EventList from './components/EventList';
-import SwitchButton from './components/SwitchButton';
 export default {
   name: 'App',
   components : {
     WonderPush,
-    EventList,
-    SwitchButton
   },
   data: function(){
     return {
       options: {
-        webKey: "a6a00ccf60ffee04cb201cead4304fc4db8fa8e0a2823a77466e8c8ebeed4e25",
-        applicationName: "Vue WonderPush Demo",
-        notificationDefaultUrl: "https://www.wonderpush.com/demo/",
-        notificationIcon: "../img/image.png"
+        webKey: "YOUR KEY HERE",
       }
     }
   }
