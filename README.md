@@ -23,10 +23,39 @@ npm i vue-wonderpush
 ### 2- In your application
 
 ```javascript
-import WonderPush from 'vue-wonderpush';
-WonderPush.init({
-  webKey: 'YOUR-WEBKEY-HERE',
-});
+<template>
+  <div id="app">
+    <h1>Connecting to wonderpush</h1>
+    <WonderPush v-bind="options">
+      <SwitchButton/>
+      <EventList/>
+    </WonderPush>
+  </div>
+</template>
+
+<script>
+import {WonderPush} from 'vue-wonderpush'
+import EventList from './components/EventList';
+import SwitchButton from './components/SwitchButton';
+export default {
+  name: 'App',
+  components : {
+    WonderPush,
+    EventList,
+    SwitchButton
+  },
+  data: function(){
+    return {
+      options: {
+        webKey: "a6a00ccf60ffee04cb201cead4304fc4db8fa8e0a2823a77466e8c8ebeed4e25",
+        applicationName: "Vue WonderPush Demo",
+        notificationDefaultUrl: "https://www.wonderpush.com/demo/",
+        notificationIcon: "../img/image.png"
+      }
+    }
+  }
+}
+</script>
 ```
 Options available for wonderpush.init:
 https://wonderpush.github.io/wonderpush-javascript-sdk/latest/WonderPush.html#.InitOptions
