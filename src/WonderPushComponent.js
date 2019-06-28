@@ -9,6 +9,7 @@ export default {
   },
   props: [
     "webKey",
+    "userId",
     "applicationName",
     "notificationDefaultUrl",
     "notificationIcon"
